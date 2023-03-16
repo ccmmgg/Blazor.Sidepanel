@@ -119,4 +119,6 @@ public interface ISidepanelService
     /// Changes the width of the sidepanel to the original size.
     /// </summary>
     void ExitFullscreen();
+
+    public Action CloseAction { get; set; }
 }

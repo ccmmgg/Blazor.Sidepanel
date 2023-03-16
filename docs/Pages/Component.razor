@@ -4,8 +4,9 @@
 
 <h1>Sidepanel Component</h1>
 <p>The component renders the inner content into the sidepanel.</p>
+<p>ActionText = @actionText</p>
 
-<SidepanelComponent Title="Your Title" SubTitle="Optional Subtitle" @ref="sidepanel">
+<SidepanelComponent Title="Your Title" SubTitle="Optional Subtitle" @ref="sidepanel" CloseAction="OnClose">
     <div>Some inner content</div>
 </SidepanelComponent>
 
@@ -21,6 +22,7 @@
     private string codeblock2 => "private SidepanelComponent sidepanel;\nprivate void OpenComponent()\n{\n    sidepanel.Open();\n}";
 
     private SidepanelComponent sidepanel;
+    private string actionText;
 
     private void Open()
     {
@@ -30,6 +32,12 @@
     private void Close()
     {
         sidepanel.Close();
+    }
+
+    private void OnClose()
+    {
+        actionText = "CloseAction invoked.";
+        StateHasChanged();
     }
 }
 

@@ -97,6 +97,7 @@ internal class SidepanelService : ISidepanelService
         ContentToRender = null;
         IsFullscreen = false;
         OnSidepanelChanged?.Invoke();
+        CloseAction?.Invoke();
     }
     /// <inheritdoc />
     public void SoftClose()
@@ -114,4 +115,7 @@ internal class SidepanelService : ISidepanelService
     {
         IsFullscreen = false;
     }
+
+    public Action CloseAction { get; set; }
+
 }

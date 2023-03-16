@@ -29,8 +29,11 @@ public partial class SidepanelComponent : ComponentBase, IDisposable
     /// </summary>
     [Parameter] public BackdropType? Backdrop { get; set; }
 
+    [Parameter] public Action? CloseAction { get; set; }
+
     public void Open()
     {
+        if (CloseAction != null) Sidepanel.CloseAction = CloseAction;
         Sidepanel.Open(Title, ChildContent, SubTitle, backDrop:Backdrop);
     }
 
